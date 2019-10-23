@@ -1,7 +1,6 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/exhibit.rb'
 require_relative '../lib/patron.rb'
 
 class PatronTest < Minitest::Test 
