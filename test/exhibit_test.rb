@@ -4,7 +4,7 @@ require 'minitest/pride'
 require_relative '../lib/exhibit.rb'
 
 class ExhibitTest < Minitest::Test 
-  
+
   def setup
     @exhibit = Exhibit.new("Gems and Minerals", 0)
   end
@@ -18,7 +18,7 @@ class ExhibitTest < Minitest::Test
   end
 
   def test_it_has_a_price
-    assert_equal 0, @exhibit.price
+    assert_equal 0, @exhibit.cost
   end
 
 end
