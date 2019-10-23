@@ -88,4 +88,31 @@ class MuseumTest < Minitest::Test
     assert_equal expected, @dmns.patrons_by_exhibit_interest
   end
 
+  def test_it_has_revenue
+    assert_equal 0, @dmns.revenue
+  end
+
+  def test_attend_exhibits_method
+    gems_and_minerals = Exhibit.new("Gems and Minerals", 0)
+    dead_sea_scrolls = Exhibit.new("Dead Sea Scrolls", 10)
+    imax = Exhibit.new("IMAX", 15)
+
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+    @dmns.add_exhibit(imax)
+
+    bob = Patron.new("Bob", 20)
+    sally = Patron.new("Sally", 30)
+
+    bob.add_interest("Dead Sea Scrolls")
+    bob.add_interest("IMAX")
+    sally.add_interest("Dead Sea Scrolls")
+    sally.add_interest("IMAX")
+
+    @dmns.admit(bob)
+    assert_equal 10, bob.spending_money
+
+    @dmns.admit(sally)
+    assert_equal 5, sally.spending_money
+  end
 end
