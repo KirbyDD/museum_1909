@@ -26,9 +26,9 @@ class PatronTest < Minitest::Test
   end
 
   def test_add_interest_method
-    bob.add_interest("Dead Sea Scrolls")
+    @bob.add_interest("Dead Sea Scrolls")
     assert_equal ["Dead Sea Scrolls"], @bob.interests
-    bob.add_interest("Gems and Minerals")
+    @bob.add_interest("Gems and Minerals")
     assert_equal ["Dead Sea Scrolls", "Gems and Minerals"], @bob.interests
   end
 end
