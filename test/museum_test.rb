@@ -56,13 +56,13 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_has_no_patrons_by_default
-    assert_equal [] @dmns.patrons
+    assert_equal [], @dmns.patrons
   end
 
   def test_admit_method
     bob = Patron.new("Bob", 20)
     @dmns.admit(bob)
-    assert_equal [bob] @dmns.patrons
+    assert_equal [bob], @dmns.patrons
   end
 
   def test_patrons_by_exhibit_interest_method
@@ -84,7 +84,7 @@ class MuseumTest < Minitest::Test
     @dmns.admit(bob)
     @dmns.admit(sally)
 
-    expected = {"Dead Sea Scrolls" => [bob,sally], "Gems and Minerals" => [bob], "IMAX" => []}
+    expected = {dead_sea_scrolls => [bob,sally], gems_and_minerals => [bob], imax => []}
     assert_equal expected, @dmns.patrons_by_exhibit_interest
   end
 
